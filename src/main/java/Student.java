@@ -40,4 +40,12 @@ public class Student {
     public void setS_answer(String s_answer) {
         this.s_answer = s_answer;
     }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 }

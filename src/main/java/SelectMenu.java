@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class SelectMenu {
@@ -23,7 +25,7 @@ public class SelectMenu {
         String sub, ans;
         Answer newSub = null;
         try {
-            System.out.println("정답을 입력하시오 >>> ");
+            System.out.println("정답을 입력하시오 (','로 구분)\n>>> ");
             ans = bf.readLine();
             newSub = new Answer(ans);
         } catch (IOException e) {
@@ -41,7 +43,7 @@ public class SelectMenu {
             s_id = bf.readLine();
             System.out.println("학생의 전공은? >>> ");
             major = bf.readLine();
-            System.out.println("학생의 정답은? >>> ");
+            System.out.println("학생의 정답은? (','로 구분)\n>>> ");
             s_answer = bf.readLine();
             newStudent = new Student(name,s_id,major,s_answer);
         } catch (IOException e) {
@@ -50,8 +52,18 @@ public class SelectMenu {
         return newStudent;
     }
     protected static void printResult(ArrayList<Student> students, Answer answer){
+        int score;
+        List<String> ans = Arrays.asList(answer.getAnswer().split("\\s*,\\s*"));
+        List<String> s_ans;
+        System.out.println("|  이름  |  학번  |   전공   | 점수 |");
         for(Student currentStudent : students){
-
+            s_ans =  Arrays.asList(currentStudent.getS_answer().split("\\s*,\\s*"));
+            score = 0;
+            for(String a : ans){
+                if(s_ans.remove(0)==a) score++;
+            }
+            currentStudent.setScore(score);
+            System.out.println("|"+currentStudent.getName()+"|"+currentStudent.getS_id()+"|"+currentStudent.getMajor()+"|"+currentStudent.getScore());
         }
     }
 }
