@@ -17,6 +17,10 @@ public class Main {
                 SelectMenu.printAnswer(answer);
             else if(selectedMenu==5)
                 answer = SelectMenu.modifyAnswer(answer);
+            else if(selectedMenu==6)
+                students = SelectMenu.modifyStudents(students);
+            else if(selectedMenu==7)
+                students = SelectMenu.deleteStudents(students);
         }while(selectedMenu!=0);
     }
 }
