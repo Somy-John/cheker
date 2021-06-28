@@ -4,7 +4,7 @@ public class Student {
     private String s_answer;
     private String major;
     private int score;
-    Student (String name, String s_id, String major, String s_answer){
+    Student(String name, String s_id, String major, String s_answer){
         this.name = name;
         this.s_id = s_id;
         this.major = major;

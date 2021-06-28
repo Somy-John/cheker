@@ -19,13 +19,13 @@ public class SelectMenu {
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
     }
-    protected static Subject insertAnswer(){
+    protected static Answer insertAnswer(){
         String sub, ans;
-        Subject newSub = null;
+        Answer newSub = null;
         try {
             System.out.println("정답을 입력하시오 >>> ");
             ans = bf.readLine();
-            newSub = new Subject(ans);
+            newSub = new Answer(ans);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,7 +49,9 @@ public class SelectMenu {
         }
         return newStudent;
     }
-    protected static void printResult(ArrayList<Student> students){
+    protected static void printResult(ArrayList<Student> students, Answer answer){
+        for(Student currentStudent : students){
 
+        }
     }
 }

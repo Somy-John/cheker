@@ -1,6 +1,6 @@
-public class Subject {
+public class Answer {
     private String answer;
-    Subject(String ans){
+    Answer(String ans){
         this.answer = ans;
     }
     public String getAnswer() {
