@@ -66,4 +66,9 @@ public class SelectMenu {
             System.out.println("|"+currentStudent.getName()+"|"+currentStudent.getS_id()+"|"+currentStudent.getMajor()+"|"+currentStudent.getScore());
         }
     }
+    protected static void printAnswer(Answer answer){
+        System.out.println(answer.getAnswer());
+    }
+
+
 }
