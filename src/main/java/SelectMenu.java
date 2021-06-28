@@ -10,7 +10,7 @@ public class SelectMenu {
     private static BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
     protected static int printMenu() {
-        System.out.println("----- 점수 관리 시스템 -----");
+        System.out.println("\n----- 점수 관리 시스템 -----");
         System.out.println("1. 정답 입력");
         System.out.println("2. 학생 답안 입력");
         System.out.println("3. 결과 출력");
@@ -19,7 +19,7 @@ public class SelectMenu {
         System.out.println("6. 학생 정보 수정");
         System.out.println("7. 학생 삭제");
         System.out.println("0. 종료");
-        System.out.println("메뉴를 선택하세요 >>> ");
+        System.out.print("메뉴를 선택하세요 >>> ");
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
     }
@@ -28,7 +28,7 @@ public class SelectMenu {
         String sub, ans;
         Answer newAns = null;
         try {
-            System.out.println("정답을 입력하시오 (','로 구분)\n>>> ");
+            System.out.print("정답을 입력하시오 (','로 구분)\n>>> ");
             ans = bf.readLine();
             newAns = new Answer(ans);
         } catch (IOException e) {
@@ -41,13 +41,13 @@ public class SelectMenu {
         String name, s_id, major, s_answer;
         Student newStudent = null;
         try {
-            System.out.println("학생의 이름은? >>> ");
+            System.out.print("학생의 이름은? >>> ");
             name = bf.readLine();
-            System.out.println("학생의 학번은? >>> ");
+            System.out.print("학생의 학번은? >>> ");
             s_id = bf.readLine();
-            System.out.println("학생의 전공은? >>> ");
+            System.out.print("학생의 전공은? >>> ");
             major = bf.readLine();
-            System.out.println("학생의 정답은? (','로 구분)\n>>> ");
+            System.out.print("학생의 정답은? (','로 구분)\n>>> ");
             s_answer = bf.readLine();
             newStudent = new Student(name, s_id, major, s_answer);
         } catch (IOException e) {
@@ -58,20 +58,35 @@ public class SelectMenu {
 
     protected static void printResult(ArrayList<Student> students, Answer answer) {
         int score,i;
-        String[] ans = answer.getAnswer().split(",");
-        String[] s_ans;
-        System.out.println("|  이름  |  학번  |   전공   | 점수 |");
+        List<String> ans = Arrays.asList(answer.getAnswer().split("\\s*,\\s*"));
+        List<String> s_ans;
+        System.out.println("|  이름  |  학번  |  전공  |  점수  |");
         for (Student currentStudent : students) {
-            s_ans = currentStudent.getS_answer().split(",");
+            s_ans = Arrays.asList(currentStudent.getS_answer().split("\\s*,\\s*")); //1,1,1,1
             score = 0;
             i=0;
-            for (String a : ans) {
-                if (s_ans[i].equals(a)) score++;
+            for (String a : ans) { //1,1,1,1
+                if (s_ans.get(i).equals(a)) score++;
                 i++;
             }
             currentStudent.setScore(score);
-            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " | " + currentStudent.getScore());
+            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |  " + currentStudent.getScore()+"  |");
         }
+        //        int score,i;
+        //        String[] ans = answer.getAnswer().split(",");
+        //        String[] s_ans;
+        //        System.out.println("|  이름  |  학번  |   전공   | 점수 |");
+        //        for (Student currentStudent : students) {
+        //            s_ans = currentStudent.getS_answer().split(",");
+        //            score = 0;
+        //            i=0;
+        //            for (String a : ans) {
+        //                if (s_ans[i].equals(a)) score++;
+        //                i++;
+        //            }
+        //            currentStudent.setScore(score);
+        //            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " | " + currentStudent.getScore());
+        //        }
     }
 
     protected static void printAnswer(Answer answer) {
@@ -82,7 +97,7 @@ public class SelectMenu {
         String sub, ans;
         Answer modifiedAns = null;
         try {
-            System.out.println("수정된 정답을 입력하시오 (','로 구분)\n>>> ");
+            System.out.print("수정된 정답을 입력하시오 (','로 구분)\n>>> ");
             ans = bf.readLine();
             modifiedAns = new Answer(ans);
         } catch (IOException e) {
@@ -97,18 +112,18 @@ public class SelectMenu {
             System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |");
         }
         try {
-            System.out.println("정보를 수정 할 학생의 학번은? >>> ");
+            System.out.print("정보를 수정 할 학생의 학번은? >>> ");
             String s_id = bf.readLine();
             for (Student currentStudent : students) {
                 if (currentStudent.getS_id().equals(s_id)) {
                     System.out.println("선택된 학생의 이름 : " + currentStudent.getName());
-                    System.out.println("변경할 학생의 이름은? >>> ");
+                    System.out.print("변경할 학생의 이름은? >>> ");
                     currentStudent.setName(bf.readLine());
-                    System.out.println("변경할 학생의 학번은? >>> ");
+                    System.out.print("변경할 학생의 학번은? >>> ");
                     currentStudent.setS_id(bf.readLine());
-                    System.out.println("변경할 학생의 전공은? >>> ");
+                    System.out.print("변경할 학생의 전공은? >>> ");
                     currentStudent.setMajor(bf.readLine());
-                    System.out.println("변경할 학생의 정답은? (','로 구분)\n>>> ");
+                    System.out.print("변경할 학생의 정답은? (','로 구분)\n>>> ");
                     currentStudent.setS_answer(bf.readLine());
                     return students;
                 }
@@ -126,11 +141,11 @@ public class SelectMenu {
             System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |");
         }
         try {
-            System.out.println("삭제할 학생의 학번은? >>> ");
+            System.out.print("삭제할 학생의 학번은? >>> ");
             String s_id = bf.readLine();
             for (Student currentStudent : students) {
                 if (currentStudent.getS_id().equals(s_id)) {
-                    System.out.println("정말 삭제하시겠습니까? (yes: 1, no: 0) >>> ");
+                    System.out.print("정말 삭제하시겠습니까? (yes: 1, no: 0) >>> ");
                     int accept = Integer.parseInt(bf.readLine());
                     if (accept == 1) {
                         students.remove(currentStudent);
