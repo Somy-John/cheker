@@ -15,7 +15,8 @@ public class SelectMenu {
         System.out.println("3. 결과 출력");
         System.out.println("4. 정답 출력");
         System.out.println("5. 정답 수정");
-        System.out.println("6. 학생 답안 수정");
+        System.out.println("6. 학생 정보 수정");
+        System.out.println("7. 학생 삭제");
         System.out.println("0. 종료");
         System.out.println("메뉴를 선택하세요 >>> ");
         Scanner sc = new Scanner(System.in);
@@ -23,15 +24,15 @@ public class SelectMenu {
     }
     protected static Answer insertAnswer(){
         String sub, ans;
-        Answer newSub = null;
+        Answer newAns = null;
         try {
             System.out.println("정답을 입력하시오 (','로 구분)\n>>> ");
             ans = bf.readLine();
-            newSub = new Answer(ans);
+            newAns = new Answer(ans);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return newSub;
+        return newAns;
     }
     protected static Student insertStudent(){
         String name, s_id, major, s_answer;
@@ -69,6 +70,43 @@ public class SelectMenu {
     protected static void printAnswer(Answer answer){
         System.out.println(answer.getAnswer());
     }
-
-
+    protected static Answer modifyAnswer(Answer answer){
+        String sub, ans;
+        Answer modifiedAns = null;
+        try {
+            System.out.println("수정된 정답을 입력하시오 (','로 구분)\n>>> ");
+            ans = bf.readLine();
+            modifiedAns = new Answer(ans);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return modifiedAns;
+    }
+    protected static ArrayList<Student> modifyStudents(ArrayList<Student> students){
+        System.out.println("|  이름  |  학번  |   전공   |");
+        for(Student currentStudent : students) {
+            System.out.println("|" + currentStudent.getName() + "|" + currentStudent.getS_id() + "|" + currentStudent.getMajor() + "|");
+        }
+        try {
+            System.out.println("정보를 수정 할 학생의 학번은? >>> ");
+            String s_id = bf.readLine();
+            for(Student currentStudent : students){
+                if(currentStudent.getS_id() == s_id){
+                    System.out.println("선택된 학생의 이름 : "+currentStudent.getName());
+                    System.out.println("변경할 학생의 이름은? >>> ");
+                    currentStudent.setName(bf.readLine());
+                    System.out.println("변경할 학생의 학번은? >>> ");
+                    currentStudent.setS_id(bf.readLine());
+                    System.out.println("변경할 학생의 전공은? >>> ");
+                    currentStudent.setMajor (bf.readLine());
+                    System.out.println("변경할 학생의 정답은? (','로 구분)\n>>> ");
+                    currentStudent.setS_answer(bf.readLine());
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return students;
+    }
 }

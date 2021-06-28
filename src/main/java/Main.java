@@ -15,7 +15,8 @@ public class Main {
                 SelectMenu.printResult(students, answer);
             else if(selectedMenu==4)
                 SelectMenu.printAnswer(answer);
-
+            else if(selectedMenu==5)
+                answer = SelectMenu.modifyAnswer(answer);
         }while(selectedMenu!=0);
     }
 }
