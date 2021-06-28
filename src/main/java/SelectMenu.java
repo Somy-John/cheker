@@ -65,10 +65,10 @@ public class SelectMenu {
             s_ans = Arrays.asList(currentStudent.getS_answer().split("\\s*,\\s*"));
             score = 0;
             for (String a : ans) {
-                if (s_ans.remove(0) == a) score++;
+                if (s_ans.remove(0).equals(a)) score++;
             }
             currentStudent.setScore(score);
-            System.out.println("|" + currentStudent.getName() + "|" + currentStudent.getS_id() + "|" + currentStudent.getMajor() + "|" + currentStudent.getScore());
+            System.out.println("| " + currentStudent.getName() + " |" + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " | " + currentStudent.getScore());
         }
     }
 
@@ -92,13 +92,13 @@ public class SelectMenu {
     protected static ArrayList<Student> modifyStudents(ArrayList<Student> students) {
         System.out.println("|  이름  |  학번  |   전공   |");
         for (Student currentStudent : students) {
-            System.out.println("|" + currentStudent.getName() + "|" + currentStudent.getS_id() + "|" + currentStudent.getMajor() + "|");
+            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |");
         }
         try {
             System.out.println("정보를 수정 할 학생의 학번은? >>> ");
             String s_id = bf.readLine();
             for (Student currentStudent : students) {
-                if (currentStudent.getS_id() == s_id) {
+                if (currentStudent.getS_id().equals(s_id)) {
                     System.out.println("선택된 학생의 이름 : " + currentStudent.getName());
                     System.out.println("변경할 학생의 이름은? >>> ");
                     currentStudent.setName(bf.readLine());
@@ -108,31 +108,38 @@ public class SelectMenu {
                     currentStudent.setMajor(bf.readLine());
                     System.out.println("변경할 학생의 정답은? (','로 구분)\n>>> ");
                     currentStudent.setS_answer(bf.readLine());
-                    break;
+                    return students;
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("해당 학생이 없습니다.");
         return students;
     }
 
     protected static ArrayList<Student> deleteStudents(ArrayList<Student> students) {
         System.out.println("|  이름  |  학번  |   전공   |");
         for (Student currentStudent : students) {
-            System.out.println("|" + currentStudent.getName() + "|" + currentStudent.getS_id() + "|" + currentStudent.getMajor() + "|");
+            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |");
         }
         try {
             System.out.println("삭제할 학생의 학번은? >>> ");
             String s_id = bf.readLine();
             for (Student currentStudent : students) {
-                if (currentStudent.getS_id() == s_id) {
+                if (currentStudent.getS_id().equals(s_id)) {
                     System.out.println("정말 삭제하시겠습니까? (yes: 1, no: 0) >>> ");
                     int accept = Integer.parseInt(bf.readLine());
-                    if (accept == 1)
+                    if (accept == 1) {
                         students.remove(currentStudent);
+                        System.out.println("삭제 완료");
+                    }
+                    else if(accept==0) {
+                        System.out.println("삭제 취소");
+                    }
                     return students;
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
