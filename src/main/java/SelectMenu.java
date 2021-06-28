@@ -57,18 +57,20 @@ public class SelectMenu {
     }
 
     protected static void printResult(ArrayList<Student> students, Answer answer) {
-        int score;
-        List<String> ans = Arrays.asList(answer.getAnswer().split("\\s*,\\s*"));
-        List<String> s_ans;
+        int score,i;
+        String[] ans = answer.getAnswer().split(",");
+        String[] s_ans;
         System.out.println("|  이름  |  학번  |   전공   | 점수 |");
         for (Student currentStudent : students) {
-            s_ans = Arrays.asList(currentStudent.getS_answer().split("\\s*,\\s*"));
+            s_ans = currentStudent.getS_answer().split(",");
             score = 0;
+            i=0;
             for (String a : ans) {
-                if (s_ans.remove(0).equals(a)) score++;
+                if (s_ans[i].equals(a)) score++;
+                i++;
             }
             currentStudent.setScore(score);
-            System.out.println("| " + currentStudent.getName() + " |" + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " | " + currentStudent.getScore());
+            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " | " + currentStudent.getScore());
         }
     }
 
