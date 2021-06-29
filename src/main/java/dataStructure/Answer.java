@@ -5,6 +5,10 @@ public class Answer {
     public Answer(String ans){
         this.answer = ans;
     }
+
+    public Answer() {
+    }
+
     public String getAnswer() {
         return answer;
     }

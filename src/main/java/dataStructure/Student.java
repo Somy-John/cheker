@@ -11,6 +11,14 @@ public class Student {
         this.s_id = s_id;
         this.major = major;
         this.s_answer = s_answer;
+        this.score = -1;
+    }
+    public Student(String name, String s_id, String major, String s_answer,int score){
+        this.name = name;
+        this.s_id = s_id;
+        this.major = major;
+        this.s_answer = s_answer;
+        this.score = score;
     }
 
     public String getName() {

@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args){
         int selectedMenu=-1;
-        Answer answer = null;
-        ArrayList<Student> students = new ArrayList<>();
+        Answer answer = FileHandler.loadAnswerFile();
+        ArrayList<Student> students = FileHandler.loadStudentFile();
         do{
             selectedMenu = SelectMenu.menu();
             switch(selectedMenu){
@@ -22,7 +22,7 @@ public class Main {
                     break;
                 case 3:
                     if(students.size()!=0 && answer!=null)
-                        ExcuteChecker.printResult(students, answer);
+                        students = ExcuteChecker.printResult(students, answer);
                     break;
                 case 4:
                     if(answer!=null)
@@ -45,8 +45,6 @@ public class Main {
                 case 9:
                     FileHandler.saveStudentFile(students);
                     break;
-                case 10:
-                    FileHandler.saveBothFile(answer, students);
             }
         }while(selectedMenu!=0);
         System.out.println("Bye...");

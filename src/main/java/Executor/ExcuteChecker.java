@@ -45,7 +45,7 @@ public class ExcuteChecker {
         return newStudent;
     }
 
-    public static void printResult(ArrayList<Student> students, Answer answer) {
+    public static ArrayList<Student> printResult(ArrayList<Student> students, Answer answer) {
         int score,i;
         List<String> ans = Arrays.asList(answer.getAnswer().split("\\s*,\\s*"));
         List<String> s_ans;
@@ -61,6 +61,7 @@ public class ExcuteChecker {
             currentStudent.setScore(score);
             System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |  " + currentStudent.getScore()+"  |");
         }
+        return students;
     }
 
     public static void printAnswer(Answer answer) {
