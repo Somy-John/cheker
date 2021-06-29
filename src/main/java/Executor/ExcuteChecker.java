@@ -105,7 +105,7 @@ public class ExcuteChecker {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("해당 학생이 없습니다.");
+        System.out.println("System: 해당 학생이 없습니다.");
         return students;
     }
 
@@ -123,10 +123,10 @@ public class ExcuteChecker {
                     int accept = Integer.parseInt(bf.readLine());
                     if (accept == 1) {
                         students.remove(currentStudent);
-                        System.out.println("삭제 완료");
+                        System.out.println("System: 삭제 완료");
                     }
                     else if(accept==0) {
-                        System.out.println("삭제 취소");
+                        System.out.println("System: 삭제 취소");
                     }
                     return students;
                 }
@@ -135,7 +135,7 @@ public class ExcuteChecker {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("해당 학생이 없습니다.");
+        System.out.println("System: 해당 학생이 없습니다.");
         return students;
     }
 }

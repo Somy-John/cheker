@@ -40,11 +40,13 @@ public class Main {
                         students = ExcuteChecker.deleteStudents(students);
                     break;
                 case 8:
-                    FileHandler.saveAnswerFile();
+                    FileHandler.saveAnswerFile(answer);
                     break;
                 case 9:
-                    FileHandler.saveStudentFile();
+                    FileHandler.saveStudentFile(students);
                     break;
+                case 10:
+                    FileHandler.saveBothFile(answer, students);
             }
         }while(selectedMenu!=0);
         System.out.println("Bye...");
