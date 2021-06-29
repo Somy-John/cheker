@@ -18,6 +18,8 @@ public class SelectMenu {
         System.out.println("[5] 정답 수정");
         System.out.println("[6] 학생 정보 수정");
         System.out.println("[7] 학생 삭제");
+        System.out.println("[8] 정답 파일 저장");
+        System.out.println("[9] 결과 파일 저장");
         System.out.println("[0] 종료");
         System.out.println("-----------------------");
         System.out.print("메뉴를 선택하세요 >>> ");
@@ -149,5 +151,11 @@ public class SelectMenu {
         }
         System.out.println("해당 학생이 없습니다.");
         return students;
+    }
+    protected static void saveAnswerFile(){
+
+    }
+    protected static void saveStudentFile(){
+
     }
 }
