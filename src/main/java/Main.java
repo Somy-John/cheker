@@ -35,6 +35,7 @@ public class Main {
                 case 6:
                     if(students.size()!=0)
                         students = ExcuteChecker.modifyStudents(students);
+                    break;
                 case 7:
                     if(students.size()!=0)
                         students = ExcuteChecker.deleteStudents(students);
@@ -47,6 +48,6 @@ public class Main {
                     break;
             }
         }while(selectedMenu!=0);
-        System.out.println("Bye :)");
+        System.out.println("System: Bye :)");
     }
 }

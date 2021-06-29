@@ -100,6 +100,7 @@ public class ExcuteChecker {
                     currentStudent.setMajor(bf.readLine());
                     System.out.print("변경할 학생의 정답은? (','로 구분)\n>>> ");
                     currentStudent.setS_answer(bf.readLine());
+                    System.out.println("System: 수정 완료.");
                     return students;
                 }
             }
