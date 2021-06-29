@@ -62,31 +62,14 @@ public class SelectMenu {
         List<String> s_ans;
         System.out.println("|  이름  |  학번  |  전공  |  점수  |");
         for (Student currentStudent : students) {
-            s_ans = Arrays.asList(currentStudent.getS_answer().split("\\s*,\\s*")); //1,1,1,1
+            s_ans = Arrays.asList(currentStudent.getS_answer().split("\\s*,\\s*"));
             score = 0;
             i=0;
-            for (String a : ans) { //1,1,1,1
+            for (String a : ans)
                 if (s_ans.get(i).equals(a)) score++;
-                i++;
-            }
             currentStudent.setScore(score);
             System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |  " + currentStudent.getScore()+"  |");
         }
-        //        int score,i;
-        //        String[] ans = answer.getAnswer().split(",");
-        //        String[] s_ans;
-        //        System.out.println("|  이름  |  학번  |   전공   | 점수 |");
-        //        for (Student currentStudent : students) {
-        //            s_ans = currentStudent.getS_answer().split(",");
-        //            score = 0;
-        //            i=0;
-        //            for (String a : ans) {
-        //                if (s_ans[i].equals(a)) score++;
-        //                i++;
-        //            }
-        //            currentStudent.setScore(score);
-        //            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " | " + currentStudent.getScore());
-        //        }
     }
 
     protected static void printAnswer(Answer answer) {
