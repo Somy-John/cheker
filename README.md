@@ -36,3 +36,6 @@
 ![image](https://user-images.githubusercontent.com/63829204/123750940-1c18ba80-d8f2-11eb-8ca1-00a663635901.png)    
 ### 불러온 정답파일과 학생파일
 ![image](https://user-images.githubusercontent.com/63829204/123750588-b9bfba00-d8f1-11eb-825d-984d2fa008e5.png)
+
+## 종료
+![image](https://user-images.githubusercontent.com/63829204/123752355-ad3c6100-d8f3-11eb-9fbc-9cd10cdad4c9.png)
