@@ -22,5 +22,6 @@ public class Main {
             else if(selectedMenu==7 && students.size()!=0)
                 students = SelectMenu.deleteStudents(students);
         }while(selectedMenu!=0);
+        System.out.println("Bye...");
     }
 }
