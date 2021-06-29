@@ -21,13 +21,15 @@
 ![image](https://user-images.githubusercontent.com/63829204/123737576-29c44500-d8de-11eb-9f8c-6dd035bdf447.png)      
 
 ## 학생 정보 수정
-![image](https://user-images.githubusercontent.com/63829204/123737635-4791aa00-d8de-11eb-966b-34af69f9954f.png) 
+![image](https://user-images.githubusercontent.com/63829204/123752879-3a7fb580-d8f4-11eb-97e1-c5048ddbabd1.png)
+![image](https://user-images.githubusercontent.com/63829204/123752995-52573980-d8f4-11eb-962e-0dcd3c88455d.png)
+
 ### 수정된 결과 출력   
-![image](https://user-images.githubusercontent.com/63829204/123737688-609a5b00-d8de-11eb-8d9a-23d4d519f53b.png)   
+![image](https://user-images.githubusercontent.com/63829204/123753029-5d11ce80-d8f4-11eb-835d-c4ff68b4d8b8.png)
 
 ## 학생 삭제    
-![image](https://user-images.githubusercontent.com/63829204/123737764-8293dd80-d8de-11eb-889c-c9c78599c0c6.png)    
-![image](https://user-images.githubusercontent.com/63829204/123737799-92132680-d8de-11eb-8274-dc327497648e.png)   
+![image](https://user-images.githubusercontent.com/63829204/123753095-6ef37180-d8f4-11eb-8ec5-8f30ac843c0d.png)
+![image](https://user-images.githubusercontent.com/63829204/123753116-73b82580-d8f4-11eb-9574-0d576b77281a.png)
 
 ## 파일 저장 구현   
 ### 정답파일 저장
