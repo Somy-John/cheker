@@ -1,33 +1,19 @@
+package Executor;
+
+import dataStructure.Answer;
+import dataStructure.Student;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
-public class SelectMenu {
+public class ExcuteChecker {
     private static BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
-    protected static int printMenu() {
-        System.out.println("\n----- 점수 관리 시스템 -----");
-        System.out.println("[1] 정답 입력");
-        System.out.println("[2] 학생 답안 입력");
-        System.out.println("[3] 결과 출력");
-        System.out.println("[4] 정답 출력");
-        System.out.println("[5] 정답 수정");
-        System.out.println("[6] 학생 정보 수정");
-        System.out.println("[7] 학생 삭제");
-        System.out.println("[8] 정답 파일 저장");
-        System.out.println("[9] 결과 파일 저장");
-        System.out.println("[0] 종료");
-        System.out.println("-----------------------");
-        System.out.print("메뉴를 선택하세요 >>> ");
-        Scanner sc = new Scanner(System.in);
-        return sc.nextInt();
-    }
-
-    protected static Answer insertAnswer() {
+    public static Answer insertAnswer() {
         String sub, ans;
         Answer newAns = null;
         try {
@@ -40,7 +26,7 @@ public class SelectMenu {
         return newAns;
     }
 
-    protected static Student insertStudent() {
+    public static Student insertStudent() {
         String name, s_id, major, s_answer;
         Student newStudent = null;
         try {
@@ -59,7 +45,7 @@ public class SelectMenu {
         return newStudent;
     }
 
-    protected static void printResult(ArrayList<Student> students, Answer answer) {
+    public static void printResult(ArrayList<Student> students, Answer answer) {
         int score,i;
         List<String> ans = Arrays.asList(answer.getAnswer().split("\\s*,\\s*"));
         List<String> s_ans;
@@ -77,11 +63,11 @@ public class SelectMenu {
         }
     }
 
-    protected static void printAnswer(Answer answer) {
+    public static void printAnswer(Answer answer) {
         System.out.println(answer.getAnswer());
     }
 
-    protected static Answer modifyAnswer(Answer answer) {
+    public static Answer modifyAnswer(Answer answer) {
         String sub, ans;
         Answer modifiedAns = null;
         try {
@@ -94,7 +80,7 @@ public class SelectMenu {
         return modifiedAns;
     }
 
-    protected static ArrayList<Student> modifyStudents(ArrayList<Student> students) {
+    public static ArrayList<Student> modifyStudents(ArrayList<Student> students) {
         System.out.println("|  이름  |  학번  |   전공   |");
         for (Student currentStudent : students) {
             System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |");
@@ -123,7 +109,7 @@ public class SelectMenu {
         return students;
     }
 
-    protected static ArrayList<Student> deleteStudents(ArrayList<Student> students) {
+    public static ArrayList<Student> deleteStudents(ArrayList<Student> students) {
         System.out.println("|  이름  |  학번  |   전공   |");
         for (Student currentStudent : students) {
             System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |");
@@ -151,11 +137,5 @@ public class SelectMenu {
         }
         System.out.println("해당 학생이 없습니다.");
         return students;
-    }
-    protected static void saveAnswerFile(){
-
-    }
-    protected static void saveStudentFile(){
-
     }
 }

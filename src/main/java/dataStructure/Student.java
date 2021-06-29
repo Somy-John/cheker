@@ -1,10 +1,12 @@
+package dataStructure;
+
 public class Student {
     private String name;
     private String s_id;
     private String s_answer;
     private String major;
     private int score;
-    Student(String name, String s_id, String major, String s_answer){
+    public Student(String name, String s_id, String major, String s_answer){
         this.name = name;
         this.s_id = s_id;
         this.major = major;

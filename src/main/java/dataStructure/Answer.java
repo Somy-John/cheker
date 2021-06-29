@@ -1,6 +1,8 @@
+package dataStructure;
+
 public class Answer {
     private String answer;
-    Answer(String ans){
+    public Answer(String ans){
         this.answer = ans;
     }
     public String getAnswer() {
