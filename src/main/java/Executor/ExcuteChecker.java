@@ -49,7 +49,7 @@ public class ExcuteChecker {
         int score,i;
         List<String> ans = Arrays.asList(answer.getAnswer().split("\\s*,\\s*"));
         List<String> s_ans;
-        System.out.println("|  이름  |  학번  |  전공  |  점수  |");
+        System.out.println("|  이름  |  학번  |  전공  |  점수  |  학생 답안  |");
         for (Student currentStudent : students) {
             s_ans = Arrays.asList(currentStudent.getS_answer().split("\\s*,\\s*"));
             score = 0;
@@ -59,7 +59,7 @@ public class ExcuteChecker {
                 i++;
             }
             currentStudent.setScore(score);
-            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |  " + currentStudent.getScore()+"  |");
+            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |  " + currentStudent.getScore()+"  | "+currentStudent.getS_answer()+" |");
         }
         return students;
     }
