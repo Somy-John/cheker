@@ -47,6 +47,6 @@ public class Main {
                     break;
             }
         }while(selectedMenu!=0);
-        System.out.println("Bye...");
+        System.out.println("Bye :)");
     }
 }
