@@ -10,7 +10,7 @@
 ![image](https://user-images.githubusercontent.com/63829204/123737473-f4b7f280-d8dd-11eb-8215-a8469a3da296.png)   
 
 ## 결과 출력
-![image](https://user-images.githubusercontent.com/63829204/123737500-03060e80-d8de-11eb-8b2a-89bffa1f01b6.png)
+![image](https://user-images.githubusercontent.com/63829204/123751652-e7f1c980-d8f2-11eb-8a94-d7ad5d634e19.png)
 
 ## 정답 출력
 ![image](https://user-images.githubusercontent.com/63829204/123737534-131dee00-d8de-11eb-8b84-7210587d8b45.png)    
