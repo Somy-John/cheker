@@ -44,14 +44,33 @@ public class ExcuteChecker {
         }
         return newStudent;
     }
+    public static ArrayList<Student> printStudent(ArrayList<Student> students){
+        List<String> results  = new ArrayList<>();
+        for (Student currentStudent : students)
+            results.add("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |  " +currentStudent.getS_answer()+" |");
+        System.out.println("|  이름  |  학번  |  전공  |  학생 답안  |");
+        for (String rsts : results)
+            System.out.println(rsts);
+        return students;
+    }
 
     public static ArrayList<Student> printResult(ArrayList<Student> students, Answer answer) {
         int score,i;
+        List<String> errors  = new ArrayList<>();
+        List<String> results  = new ArrayList<>();
         List<String> ans = Arrays.asList(answer.getAnswer().split("\\s*,\\s*"));
         List<String> s_ans;
-        System.out.println("|  이름  |  학번  |  전공  |  점수  |  학생 답안  |");
+
         for (Student currentStudent : students) {
             s_ans = Arrays.asList(currentStudent.getS_answer().split("\\s*,\\s*"));
+            if(s_ans.size() > ans.size()){
+                errors.add(currentStudent.getName()+"("+currentStudent.getS_id()+") 학생의 답안이 정답의 갯수보다 많습니다.");
+                continue;
+            }
+            else if(s_ans.size() < ans.size()){
+                errors.add(currentStudent.getName()+"("+currentStudent.getS_id()+") 학생의 답안이 정답의 갯수보다 적습니다.");
+                continue;
+            }
             score = 0;
             i=0;
             for (String a : ans) {
@@ -59,8 +78,16 @@ public class ExcuteChecker {
                 i++;
             }
             currentStudent.setScore(score);
-            System.out.println("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |  " + currentStudent.getScore()+"  | "+currentStudent.getS_answer()+" |");
+            results.add("| " + currentStudent.getName() + " | " + currentStudent.getS_id() + " | " + currentStudent.getMajor() + " |  " + currentStudent.getScore()+"  | "+currentStudent.getS_answer()+" |");
         }
+
+        if (results.size()>0) System.out.println("|  이름  |  학번  |  전공  |  점수  |  학생 답안  |");
+        for (String rsts : results)
+            System.out.println(results);
+        System.out.println();
+        for (String errs : errors)
+            System.out.println("System: "+errs);
+
         return students;
     }
 

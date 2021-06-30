@@ -22,28 +22,32 @@ public class Main {
                     break;
                 case 3:
                     if(students.size()!=0 && answer!=null)
-                        students = ExcuteChecker.printResult(students, answer);
+                        ExcuteChecker.printStudent(students);
                     break;
                 case 4:
-                    if(answer!=null)
-                    ExcuteChecker.printAnswer(answer);
+                    if(students.size()!=0 && answer!=null)
+                        students = ExcuteChecker.printResult(students, answer);
                     break;
                 case 5:
                     if(answer!=null)
-                    answer = ExcuteChecker.modifyAnswer(answer);
+                    ExcuteChecker.printAnswer(answer);
                     break;
                 case 6:
-                    if(students.size()!=0)
-                        students = ExcuteChecker.modifyStudents(students);
+                    if(answer!=null)
+                    answer = ExcuteChecker.modifyAnswer(answer);
                     break;
                 case 7:
                     if(students.size()!=0)
-                        students = ExcuteChecker.deleteStudents(students);
+                        students = ExcuteChecker.modifyStudents(students);
                     break;
                 case 8:
-                    FileHandler.saveAnswerFile(answer);
+                    if(students.size()!=0)
+                        students = ExcuteChecker.deleteStudents(students);
                     break;
                 case 9:
+                    FileHandler.saveAnswerFile(answer);
+                    break;
+                case 10:
                     FileHandler.saveStudentFile(students);
                     break;
             }
